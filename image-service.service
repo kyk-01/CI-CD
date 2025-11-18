@@ -1,0 +1,17 @@
+[Unit]
+Description=Image Service Spring Boot Application
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/GPT/ai-response-generators/GPT
+ExecStart=/usr/bin/java -jar target/GPT-0.0.1-SNAPSHOT.jar
+SuccessExitStatus=143
+Restart=always
+RestartSec=5
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
